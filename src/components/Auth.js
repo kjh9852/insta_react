@@ -6,6 +6,7 @@ import Card from "./UI/Card";
 import styles from './Auth.module.css';
 
 const Auth = (props) => {
+  const clientId = process.env.REACT_APP_CLIENT_ID
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -29,7 +30,7 @@ const Auth = (props) => {
     <Card>
       <div className={styles.auth}>
         <h1>Instagram Login</h1>
-        <Link to="https://api.instagram.com/oauth/authorize?client_id=329023239730678&redirect_uri=https://kjh9852.github.io/insta_react/&scope=user_profile,user_media&response_type=code">
+        <Link to={`https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=https://kjh9852.github.io/insta_react/&scope=user_profile,user_media&response_type=code`}>
           {props.login}
         </Link>
       </div>
