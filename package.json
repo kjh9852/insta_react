@@ -2,7 +2,6 @@
   "name": "projectinsta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kjh9852.github.io/React-insta/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -49,5 +48,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://www.instagram.com/"
+  "proxy": "https://www.instagram.com/",
+  "homepage": "https://kjh9852.github.io/React-insta/"
 }
