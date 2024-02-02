@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Auth from './components/Auth';
+import AuthContext from './store/auth-context';
+import Media from './components/Media';
+import Detail from './components/Detail';
+import RootLayout from './routes/RootLayout';
+import FeedList from './components/FeedList';
+import Home from './components/Home';
+import SelectLayout from './routes/SelectLayout';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout/>,
+    id: 'root',
+    children: [
+      {
+        index: true, element: <Auth login="Login"/>,
+      },
+      {
+        element: <SelectLayout/>,
+        children: [
+          {
+            path: 'home',
+            element: <Home />
+          },
+          {
+            path: 'feeds',
+            element: <Media/>
+          }
+        ]
+      },
+      {
+        path:':yearList',
+        id: "yearData",
+        element: <FeedList/>
+      },
+      {
+        path:'feeds/:feedId',
+        element: <Detail/>
+      }
+    ]
+  }
+])
 
 function App() {
+  const authCtx = useContext(AuthContext);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router} />
+    // <>
+    //   {!authCtx.token && <Auth login="LOGIN"/> }
+    //   {authCtx.id && !authCtx.detail && <Media />}
+    //   {authCtx.id && authCtx.detail && <Detail />}
+    // </>
   );
 }
 

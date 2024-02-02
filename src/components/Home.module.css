@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+}
+.list {
+    display: grid;
+    gap: 1rem;
+    row-gap: 2.5rem;
+    grid-template-columns: repeat(3,30%);
+    justify-content: center;
+    max-width: 50rem;
+    margin: 1rem auto;
+    padding: 2rem;
+}
+.album::after {
+    position: absolute;
+    content: '';
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../image/slbum_icon.png) ;
+}

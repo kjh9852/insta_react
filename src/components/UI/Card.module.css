@@ -1,0 +1,11 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 23rem;
+    height: 15rem;
+    padding: 0.7rem;
+    margin: 2rem auto;
+    border-radius: 10px;
+    background: linear-gradient(to bottom left, rgb(142,42,236),rgb(255,3,104), rgb(254,206,0));
+}

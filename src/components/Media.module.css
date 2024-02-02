@@ -1,0 +1,28 @@
+.container {
+    padding: 3rem 0;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.date a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+
+.date a:hover {
+    color: #8500c2;
+}
+
+.date a i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
