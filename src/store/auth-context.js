@@ -19,7 +19,7 @@ const AuthContext = React.createContext({
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET
-const redirectUri = "https://localhost:3000/";
+const redirectUri = "https://kjh9852.github.io/insta_react/";
 
 export const AuthContextProvider = (props) => {
   const [userId, setUserId] = useState("");
