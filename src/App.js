@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import Auth from './components/Auth';
 import AuthContext from './store/auth-context';
 import Media from './components/Media';
@@ -9,9 +9,9 @@ import FeedList from './components/FeedList';
 import Home from './components/Home';
 import SelectLayout from './routes/SelectLayout';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/",
+    path: "/*",
     element: <RootLayout/>,
     id: 'root',
     children: [
