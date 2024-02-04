@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/insta_react/static/css/main.a590524a.css",
-    "main.js": "/insta_react/static/js/main.c049ccbf.js",
+    "main.js": "/insta_react/static/js/main.df229133.js",
     "index.html": "/insta_react/index.html",
     "main.a590524a.css.map": "/insta_react/static/css/main.a590524a.css.map",
-    "main.c049ccbf.js.map": "/insta_react/static/js/main.c049ccbf.js.map"
+    "main.df229133.js.map": "/insta_react/static/js/main.df229133.js.map"
   },
   "entrypoints": [
     "static/css/main.a590524a.css",
-    "static/js/main.c049ccbf.js"
+    "static/js/main.df229133.js"
   ]
 }
