@@ -41,7 +41,10 @@ const router = createBrowserRouter([
         element: <Detail/>
       }
     ]
-  }
+  },
+  {
+    basename: "/insta_react"
+  },
 ])
 
 function App() {
