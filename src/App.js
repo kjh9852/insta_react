@@ -11,10 +11,8 @@ import SelectLayout from './routes/SelectLayout';
 
 const router = createBrowserRouter([
   {
-    basename: process.env.PUBLIC_URL
-  },
-  {
     path: "/",
+    basename: process.env.PUBLIC_URL,
     element: <RootLayout/>,
     children: [
       {
