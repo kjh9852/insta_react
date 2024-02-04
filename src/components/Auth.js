@@ -18,7 +18,7 @@ const Auth = (props) => {
     if(authCtx.token) {
       navigate('/home')
     } else if(!authCtx.token) {
-      navigate('/')
+      navigate('../')
     }
 
     return () => {
