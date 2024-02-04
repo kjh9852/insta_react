@@ -11,6 +11,9 @@ import SelectLayout from './routes/SelectLayout';
 
 const router = createBrowserRouter([
   {
+    basename: "/insta_react"
+  },
+  {
     path: "/",
     element: <RootLayout/>,
     id: 'root',
@@ -41,9 +44,6 @@ const router = createBrowserRouter([
         element: <Detail/>
       }
     ]
-  },
-  {
-    basename: "/insta_react"
   },
 ])
 
