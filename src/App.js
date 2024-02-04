@@ -11,12 +11,11 @@ import SelectLayout from './routes/SelectLayout';
 
 const router = createBrowserRouter([
   {
-    basename: "/insta_react"
+    basename: process.env.PUBLIC_URL
   },
   {
     path: "/",
     element: <RootLayout/>,
-    id: 'root',
     children: [
       {
         index: true, element: <Auth login="Login"/>,
