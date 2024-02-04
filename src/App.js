@@ -9,9 +9,9 @@ import FeedList from './components/FeedList';
 import Home from './components/Home';
 import SelectLayout from './routes/SelectLayout';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <RootLayout/>,
     id: 'root',
     children: [
