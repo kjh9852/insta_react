@@ -19,7 +19,7 @@ const AuthContext = React.createContext({
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET
-const redirectUri = "https://kjh9852.github.io/insta_react";
+const redirectUri = "https://kjh9852.github.io/insta_react/";
 
 export const AuthContextProvider = (props) => {
   const [userId, setUserId] = useState("");
@@ -46,7 +46,7 @@ export const AuthContextProvider = (props) => {
 
   const loginHandler = useCallback(async (code) => {
     try {
-      const url = "oauth/access_token";
+      const url = "/oauth/access_token";
       const getAuthorizationCode = oauth.client(axios.create(), {
         url,
         client_id: clientId,

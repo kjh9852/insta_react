@@ -9,10 +9,11 @@ import FeedList from './components/FeedList';
 import Home from './components/Home';
 import SelectLayout from './routes/SelectLayout';
 
+const basename = process.env.PUBLIC_URL;
+
 const router = createBrowserRouter([
   {
     path: "/",
-    basename: process.env.PUBLIC_URL,
     element: <RootLayout/>,
     children: [
       {
@@ -42,7 +43,10 @@ const router = createBrowserRouter([
       }
     ]
   },
-])
+],
+{
+  basename
+})
 
 function App() {
   const authCtx = useContext(AuthContext);
