@@ -46,7 +46,7 @@ export const AuthContextProvider = (props) => {
 
   const loginHandler = useCallback(async (code) => {
     try {
-      const url = "/oauth/access_token";
+      const url = "https://api.instagram.com/oauth/access_token";
       const getAuthorizationCode = oauth.client(axios.create(), {
         url,
         client_id: clientId,
