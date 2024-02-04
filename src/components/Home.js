@@ -55,9 +55,7 @@ const Home = () => {
   useEffect(() => {
     if (authCtx.token) {
       getMediaData();
-    } else if (!authCtx.token) {
-      navigate("/");
-    }
+    } 
     return () => {
       console.log("end");
     };
