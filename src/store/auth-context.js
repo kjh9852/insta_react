@@ -44,9 +44,11 @@ export const AuthContextProvider = (props) => {
     
   };
 
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
   const loginHandler = useCallback(async (code) => {
     try {
-      const url = "https://api.instagram.com/oauth/access_token";
+      const url = `${PROXY}/oauth/access_token`;
       const getAuthorizationCode = oauth.client(axios.create(), {
         url,
         client_id: clientId,
