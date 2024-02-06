@@ -26,7 +26,7 @@ const Home = () => {
         .get(
           `https://graph.instagram.com/${authCtx.id}${mediaUrl}${authCtx.token}`, {
             headers: {
-              "Content-Type" : "application/json"
+              "Content-Type":"application/json"
             },
             body: JSON.stringify()
           }
