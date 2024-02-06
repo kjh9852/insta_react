@@ -3,7 +3,7 @@ publish = "build"
 command = "npm run build"
 
 [[redirects]]
-from = "/*"
-  to = "https://api.instagram.com/:splat"  
+from = "/proxy/*"
+  to = "https://api.instagram.com/:splat"
   status = 200
   force = true
