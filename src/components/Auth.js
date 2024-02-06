@@ -30,7 +30,7 @@ const Auth = (props) => {
     <Card>
       <div className={styles.auth}>
         <h1>Instagram Login</h1>
-        <Link to={`https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=https://kjh9852.github.io/insta_react/&scope=user_profile,user_media&response_type=code`}>
+        <Link to={`https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=https://kjh9852-react-insta.netlify.app/insta_react/&scope=user_profile,user_media&response_type=code`}>
           {props.login}
         </Link>
       </div>

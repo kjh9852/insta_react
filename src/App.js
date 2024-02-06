@@ -43,10 +43,7 @@ const router = createBrowserRouter([
       }
     ]
   },
-],
-{
-  basename
-})
+])
 
 function App() {
   const authCtx = useContext(AuthContext);
