@@ -2,9 +2,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/oauth',
-    createProxyMiddleware({
-      target: 'https://api.instagram.com',
+    createProxyMiddleware('/insta_react',{
+      target: 'https://www.instagram.com/',
       changeOrigin: true,
     })
   );
