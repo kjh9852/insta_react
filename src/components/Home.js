@@ -24,7 +24,12 @@ const Home = () => {
       );
       axios
         .get(
-          `https://graph.instagram.com/${authCtx.id}${mediaUrl}${authCtx.token}`
+          `https://graph.instagram.com/${authCtx.id}${mediaUrl}${authCtx.token}`, {
+            headers: {
+              "Content-Type" : "application/json"
+            },
+            body: JSON.stringify()
+          }
         )
         .then((res) => {
           const {data} = res.data;
