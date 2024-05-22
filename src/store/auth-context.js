@@ -19,7 +19,7 @@ const AuthContext = React.createContext({
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET
-const redirectUri = "https://kjh9852-react-insta.netlify.app/";
+const redirectUri = window.location.hostname === 'localhost' ? 'https://localhost:3000/' : "https://kjh9852-react-insta.netlify.app/";
 
 export const AuthContextProvider = (props) => {
   const [userId, setUserId] = useState("");

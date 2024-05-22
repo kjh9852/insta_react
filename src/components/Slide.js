@@ -22,20 +22,21 @@ const Slide = ({ filterYear }) => {
   const navigate = useNavigate();
   const [trans, setTrans] = useState(0);
   const [count, setCount] = useState();
+  const [slideWidth , setSlideWidth] = useState();
 
   // slide btn
   const onClickL = () => {
     if (trans >= 0) {
       return;
     }
-    setTrans((current) => current + 264);
+    setTrans((current) => current + slideWidth);
   };
 
   const onClickR = () => {
-    if (trans <= (count - 3) * - 264) {
+    if (trans <= (count - 3) * - slideWidth) {
       return;
     }
-    setTrans((current) => current - 264);
+    setTrans((current) => current - slideWidth);
   };
 
   // callback Ref
@@ -43,6 +44,9 @@ const Slide = ({ filterYear }) => {
     if (elem) {
       const Elementcount = elem.childNodes.length;
       setCount(Elementcount);
+      const ElementWidth = elem.offsetParent.offsetWidth / 3;
+      setSlideWidth(ElementWidth);
+      console.dir(elem.offsetParent.offsetWidth/3)
     }
   };
 
@@ -57,6 +61,16 @@ const Slide = ({ filterYear }) => {
         .then((res) => {
           const { data } = res.data;
           const newList = [];
+          for (const key in data) {
+            newList.push({
+              id: data[key].id,
+              url: data[key].media_url,
+              type: data[key].media_type,
+              year: new Date(data[key].timestamp).getFullYear().toString(),
+              month: (new Date(data[key].timestamp).getMonth() + 1).toString(),
+              day: new Date(data[key].timestamp).getDate().toString(),
+            });
+          }
           for (const key in data) {
             newList.push({
               id: data[key].id,
@@ -118,7 +132,6 @@ const Slide = ({ filterYear }) => {
           </div>
         )}
       </div>
-      {count > 3 &&
       <div className={styles.actions}>
         <button className={styles.leftBtn} onClick={onClickL}>
           <i class="fas fa-caret-square-left"></i>
@@ -127,7 +140,6 @@ const Slide = ({ filterYear }) => {
           <i class="fas fa-caret-square-right"></i>
         </button>
       </div>
-       }
     </div>
   );
 };

@@ -67,6 +67,7 @@ const Media = ({ filter }) => {
   const dateArray = itemTime.reduce((list, item) => {
     return list.includes(item) ? list : [...list, item];
   }, []);
+  // 배열 중 같은 날짜가 있으면 하나의 배열로 리턴
 
   return (
     <div className={styles.container}>

@@ -1,6 +1,7 @@
 .container {
     height: 100%;
 }
+
 .list {
     display: grid;
     gap: 1rem;
@@ -11,6 +12,7 @@
     margin: 1rem auto;
     padding: 2rem;
 }
+
 .album::after {
     position: absolute;
     content: '';

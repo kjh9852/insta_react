@@ -1,29 +1,30 @@
 .container {
   position: relative;
+  min-width: 40rem;
 }
 
 .feed__show {
-  width: 792px;
+  left: calc(50% - 397px);
   overflow: hidden;
   position: relative;
-  left: calc(50% - 397px);
+  width: 792px;
 }
 
 .slide {
-  width: 3500px;
+  max-width: 3500px;
   padding: 50px 0 50px 0;
   display: flex;
   transition: all 0.4s ease;
 }
 
 .slide__item {
-  position: relative;
   display: grid;
-  grid-template-columns: minmax(250px, 1fr);
-  grid-template-rows: minmax(350px, 1fr);
-  width: 250px;
+  grid-template-columns: minmax(250px,1fr);
+  grid-template-rows: minmax(350px,1fr);
   height: 100%;
   margin: 0 7px;
+  position: relative;
+  width: 250px;
 }
 
 .album::after {
@@ -43,6 +44,7 @@
 
 .actions button {
   position: absolute;
+  padding: 0;
   border: none;
   background: transparent;
   font-size: 3rem;
@@ -56,16 +58,14 @@
   color: #7000a4;
 }
 
-.actions i {
-  text-shadow: 2px 2px 2px #240069;
-}
-
 .leftBtn {
-  top: 50%;
+  text-shadow: 2px 2px 2px #240069;
+  top: calc(50% - 24px);
   left: calc(10% - 50px);
 }
 
 .rightBtn {
-  top: 50%;
+  text-shadow: -2px 2px 2px #240069;
+  top: calc(50% - 24px);
   right: calc(10% - 50px);
 }
