@@ -12,7 +12,7 @@ import Loading from "./UI/Loading";
 import { useNavigate } from "react-router-dom";
 import styles from "./Slide.module.css";
 
-const mediaUrl = `/media?fields=id,media_type,media_url,username,caption,account_type,permalink,timestamp&access_token=`;
+const mediaUrl = `/media?fields=id,media_type,media_url,username,caption,account_type,permalink,timestamp,thumbnail_url&access_token=`;
 
 const Slide = ({ filterYear }) => {
   const authCtx = useContext(AuthContext);
@@ -22,7 +22,7 @@ const Slide = ({ filterYear }) => {
   const navigate = useNavigate();
   const [trans, setTrans] = useState(0);
   const [count, setCount] = useState();
-  const [slideWidth , setSlideWidth] = useState();
+  const [slideWidth, setSlideWidth] = useState();
 
   // slide btn
   const onClickL = () => {
@@ -33,7 +33,7 @@ const Slide = ({ filterYear }) => {
   };
 
   const onClickR = () => {
-    if (trans <= (count - 3) * - slideWidth) {
+    if (trans <= (count - 3) * -slideWidth) {
       return;
     }
     setTrans((current) => current - slideWidth);
@@ -46,7 +46,7 @@ const Slide = ({ filterYear }) => {
       setCount(Elementcount);
       const ElementWidth = elem.offsetParent.offsetWidth / 3;
       setSlideWidth(ElementWidth);
-      console.dir(elem.offsetParent.offsetWidth/3)
+      console.dir(elem.offsetParent.offsetWidth / 3);
     }
   };
 
@@ -65,16 +65,7 @@ const Slide = ({ filterYear }) => {
             newList.push({
               id: data[key].id,
               url: data[key].media_url,
-              type: data[key].media_type,
-              year: new Date(data[key].timestamp).getFullYear().toString(),
-              month: (new Date(data[key].timestamp).getMonth() + 1).toString(),
-              day: new Date(data[key].timestamp).getDate().toString(),
-            });
-          }
-          for (const key in data) {
-            newList.push({
-              id: data[key].id,
-              url: data[key].media_url,
+              thumbnail_url: data[key].thumbnail_url && data[key].thumbnail_url,
               type: data[key].media_type,
               year: new Date(data[key].timestamp).getFullYear().toString(),
               month: (new Date(data[key].timestamp).getMonth() + 1).toString(),
@@ -105,10 +96,15 @@ const Slide = ({ filterYear }) => {
   // fetch data map
   const content = lists.map((list) => (
     <Feed
-      slideItem={list.type === "CAROUSEL_ALBUM" ? `${styles.slide__item} ${styles.album}` : styles.slide__item}
+      slideItem={
+        list.type === "CAROUSEL_ALBUM"
+          ? `${styles.slide__item} ${styles.album}`
+          : styles.slide__item
+      }
       type={list.type}
       id={list.id}
       key={list.id}
+      thumbnail={list.thumbnail_url}
       url={list.url}
       alt={list.alt}
       filter={list.year === filterYear ? true : false}

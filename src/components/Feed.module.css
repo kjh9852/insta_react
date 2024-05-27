@@ -1,29 +1,39 @@
 .feed {
-    position: relative;
-    display: grid;
-    border-radius: 10px;
-    transition: .3s ease;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(350px, 350px);
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
 .feed:hover {
-    scale: 1.05;
+  transform: scale(1.05);
 }
 
 .feed a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
 }
 
-.feed img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+
+.feed img,
+.feed video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .subTitle span {
-    font-family: 'Noto Sans KR', sans-serif;
-    letter-spacing: -1px;
-    font-weight: 500;
+  font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -1px;
+  font-weight: 500;
 }

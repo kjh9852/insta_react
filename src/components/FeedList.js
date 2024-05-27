@@ -7,7 +7,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import dateList from "./atom/dateList";
 import Loading from "./UI/Loading";
 
-const mediaUrl = `/media?fields=id,media_type,media_url,username,caption,permalink,timestamp&access_token=`;
+const mediaUrl = `/media?fields=id,media_type,media_url,username,caption,permalink,timestamp,thumbnail_url&access_token=`;
 
 const FeedList = () => {
   const authCtx = useContext(AuthContext);
@@ -37,6 +37,7 @@ const FeedList = () => {
             newList.push({
               id: data[key].id,
               url: data[key].media_url,
+              thumbnail_url: data[key].thumbnail_url && data[key].thumbnail_url,
               type: data[key].media_type,
               year: new Date(data[key].timestamp).getFullYear().toString(),
               date: (new Date(data[key].timestamp).getMonth() + 1).toString(),
@@ -76,8 +77,9 @@ const FeedList = () => {
     .filter((data) => data.year.includes(yearList))
     .map((list) => (
       <Feed
-        slideItem={list.type === "CAROUSEL_ALBUM" ? styles.album : ''}
+        slideItem={list.type === "CAROUSEL_ALBUM" ? styles.album : ""}
         type={list.type}
+        thumbnail={list.thumbnail_url}
         id={list.id}
         key={list.id}
         url={list.url}
@@ -94,7 +96,7 @@ const FeedList = () => {
         <Loading />
       ) : (
         <div className={styles.container}>
-            <h1>{yearList}</h1>
+          <h1>{yearList}</h1>
           <ul className={styles.list}>{content}</ul>
           <div className={styles.actions}>
             <Link to="../">

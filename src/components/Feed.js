@@ -11,6 +11,7 @@ const Feed = ({
   year,
   month,
   day,
+  thumbnail,
   type,
   feed_style,
   filter,
@@ -30,11 +31,17 @@ const Feed = ({
       className={slideItem ? `${slideItem} ${styles.feed}` : styles.feed}
     >
       <Link to={`/feeds/${id}`}>
-        <img src={url} alt={alt} />
+        <div className={styles.imageContainer}>
+          {type === "VIDEO" ? (
+            <img src={thumbnail} alt={alt} />
+          ) : (
+            <img src={url} alt={alt} />
+          )}
+        </div>
         <div className={styles.subTitle}>
           <span>
-            {year && year +'.'}
-            {month.length === 1 ? "0" + month + '.' : month + '.'}
+            {year && year + "."}
+            {month.length === 1 ? "0" + month + "." : month + "."}
             {day.length === 1 ? "0" + day : day}
           </span>
         </div>
@@ -42,11 +49,7 @@ const Feed = ({
     </div>
   );
 
-  return (
-    <>
-        {filter && content}
-    </>
-  );
+  return <>{filter && content}</>;
 };
 
 export default Feed;

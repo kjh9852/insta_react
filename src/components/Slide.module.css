@@ -19,8 +19,8 @@
 
 .slide__item {
   display: grid;
-  grid-template-columns: minmax(250px,1fr);
-  grid-template-rows: minmax(350px,1fr);
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: minmax(350px, 350px);
   height: 100%;
   margin: 0 7px;
   position: relative;
@@ -29,12 +29,12 @@
 
 .album::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 5px;
   right: 5px;
   width: 20px;
   height: 20px;
-  background-image: url(../image/slbum_icon.png) ;
+  background-image: url(../image/slbum_icon.png);
 }
 
 .slide__item div {
@@ -50,7 +50,7 @@
   font-size: 3rem;
   cursor: pointer;
   color: #8500c2;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .actions button:hover {
